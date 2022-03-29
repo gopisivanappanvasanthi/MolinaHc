@@ -7,16 +7,16 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6BDD3082-933B-46FE-A18E-BCA2BA7C430E}</ProjectGuid>
+    <ProjectGuid>{0FA15FD0-0B07-4B18-9591-C53783F193D4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Molina.Feature.Patients</RootNamespace>
-    <AssemblyName>Molina.Feature.Patients</AssemblyName>
+    <RootNamespace>Molina.Project.Publishes</RootNamespace>
+    <AssemblyName>Molina.Project.Publishes</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44384</IISExpressSSLPort>
+    <IISExpressSSLPort>44312</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -44,7 +44,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,39 +62,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Web.Razor">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Deployment">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Webpages.Razor">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Helpers">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Web.Infrastructure">
-      <HintPath>..\..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\..\..\..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
       <HintPath>..\..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -104,12 +70,9 @@
     <None Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\PrescriptionCreationController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\web.config" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -119,8 +82,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\..\..\Feature\PageContent\Website\Molina.Feature.PageContent.csproj">
+      <Project>{7cd588a1-fd00-45fa-a43d-3701318ed929}</Project>
+      <Name>Molina.Feature.PageContent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Feature\Patients\Website\Molina.Feature.Patients.csproj">
+      <Project>{6bdd3082-933b-46fe-a18e-bca2ba7c430e}</Project>
+      <Name>Molina.Feature.Patients</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Foundation\Serialization\Website\Molina.Foundation.Serialization.csproj">
+      <Project>{74a2d72c-a02b-4b57-ae63-cf8e2d43cbd0}</Project>
+      <Name>Molina.Foundation.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MolinaHc\Website\Molina.Project.MolinaHc.csproj">
+      <Project>{ed68aac6-7edf-4e28-91c4-e2190daf2f07}</Project>
+      <Name>Molina.Project.MolinaHc</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -135,9 +112,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>57162</DevelopmentServerPort>
+          <DevelopmentServerPort>55822</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44384/</IISUrl>
+          <IISUrl>https://localhost:44312/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -152,7 +129,11 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\..\..\..\packages\RichardSzalay.Helix.Publishing.WebRoot.1.5.6\build\RichardSzalay.Helix.Publishing.WebRoot.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\RichardSzalay.Helix.Publishing.WebRoot.1.5.6\build\RichardSzalay.Helix.Publishing.WebRoot.targets'))" />
+    <Error Condition="!Exists('..\..\..\..\packages\Sitecore.Assemblies.Platform.10.2.0\build\Sitecore.Assemblies.Platform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\packages\Sitecore.Assemblies.Platform.10.2.0\build\Sitecore.Assemblies.Platform.targets'))" />
   </Target>
+  <Import Project="..\..\..\..\packages\RichardSzalay.Helix.Publishing.WebRoot.1.5.6\build\RichardSzalay.Helix.Publishing.WebRoot.targets" Condition="Exists('..\..\..\..\packages\RichardSzalay.Helix.Publishing.WebRoot.1.5.6\build\RichardSzalay.Helix.Publishing.WebRoot.targets')" />
+  <Import Project="..\..\..\..\packages\Sitecore.Assemblies.Platform.10.2.0\build\Sitecore.Assemblies.Platform.targets" Condition="Exists('..\..\..\..\packages\Sitecore.Assemblies.Platform.10.2.0\build\Sitecore.Assemblies.Platform.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
